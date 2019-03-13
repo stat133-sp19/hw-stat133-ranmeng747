@@ -63,7 +63,7 @@ iguodala$name <- "Andre Iguodala"
 iguodala$minute <- iguodala$period * 12 - iguodala$minutes_remaining #Every period is 12 min
 ```
 
-Now we have added all the features we need for the analysis, but we are not done. To compare players' statistics, we want a global dataframe that combines all players' information. Furthermore, we can outputs summaries of individual players for readers interested in preliminary statistics. The code below can achieve what we want :
+Now we have added all the features we need for the analysis, but we are not done. To compare players' statistics, we want a global dataframe that combines all players' information. Furthermore, we can output summaries of individual players for readers interested in preliminary statistics. The code below can achieve what we want :
 
 ``` r
 #Construct global data frame
@@ -80,7 +80,7 @@ summary(iguodala)
 sink()
 ```
 
-With the global dataframe ready, we can now proceed to the analysis part.
+With the global dataframe ready, we can now proceed to the analysis.
 
 3 DATA ANALYSIS:
 ================
@@ -89,11 +89,11 @@ Let us divide the data analysis into 3 parts so it is easy for you to follow.
 
 In 3.1) we will create shot charts for the players since [70% of sensory perceptors are in our eyes](https://antranik.org/the-eye-and-vision/), therefore data visiualization is a very effective means of communication and forms a critical component of our analysis.
 
-In 3.2) we will calculate and compare players' *Effective Shotting Percentage (ESP)* , a fraction of the number of the shots they made out of the total number they attempted.
+In 3.2) we will calculate and compare players' *Effective Shooting Percentage (ESP)* , a fraction of the number of the shots they made out of the total number they attempted.
 
 in 3.3) we will explore relationship between the players' *ESP* with the periods when the shots occurred.
 
-For the analysis, we will primarily use these packages, so let us load them:
+For the analysis, we will primarily use two packages, so let us load them:
 
 ``` r
 library (ggplot2)
@@ -103,7 +103,9 @@ library (dplyr)
 3.1 Creating Shot Charts
 ------------------------
 
-To effectively visialize the shots' coordinates with respect to the court, we can add a nba court image and use it as the background for the shot charts. This is what our image looks like: <img src="../images/nba-court.jpg" width="80%" style="display: block; margin: auto;" /> To set up, we import the jpg and convert it to a raster grahpical object and use it as background for ggplot in a moment. We can achieve it with the following command:
+To effectively visualize the shots' coordinates with respect to the court, we can add a nba court image and use it as the background for the shot charts. This is what our image looks like: <img src="../images/nba-court.jpg" width="80%" style="display: block; margin: auto;" />
+
+To set up, we import the jpg and convert it to a raster grahpical object and use it as background for ggplot in a moment. We can achieve it with the following command:
 
 ``` r
 court_file <- "../images/nba-court.jpg"
@@ -123,7 +125,7 @@ iguodala_shot_chart <- ggplot(data = iguodala) +
 
 By specificing the geometric points' colors, we can easily distinguish the made shots and missed shots: <img src="../images/andre-iguodala-shot-chart.png" width="80%" style="display: block; margin: auto;" />
 
-To visiualize the shot charts of all 5 players in a single figure, we can use the global dataframe we created from last section, and use ggplot2's faceting feature and create the shot charts according to individual players. The code below achieves what we want:
+To visualize the shot charts of all 5 players in a single figure, we can use the global dataframe we created from last section, and use ggplot2's faceting feature and create the shot charts according to individual players. The code below achieves what we want:
 
 ``` r
 gsw_shot_charts <- ggplot(data = shots_data) +
@@ -138,7 +140,9 @@ gsw_shot_charts <- ggplot(data = shots_data) +
 knitr::include_graphics("../images/gsw-shot-charts.png")
 ```
 
-<img src="../images/gsw-shot-charts.png" width="80%" style="display: block; margin: auto;" /> By simply plotting a few charts, we can already learn some insight:
+<img src="../images/gsw-shot-charts.png" width="80%" style="display: block; margin: auto;" />
+
+By simply plotting a few charts, we can already learn some insight:
 
 -   Curry has made the most shot attempts, with Thompson comes as a close second. 4-time scoring champion Kevin Durant did not actually take the most attempts (Maybe a little suprising for all of us?)
 
@@ -150,10 +154,10 @@ We have now grapsed basic ideas of the players' shot statistics. However, we can
 
 We need to work with numbers(very basic) now.
 
-3.2 Investgating Effective Shotting Percentage(ESP):
+3.2 Investgating Effective Shooting Percentage(ESP):
 ----------------------------------------------------
 
-The *Effective Shotting Percentage* is simply the percentage of shots that are made out of all shots. Since players such as Curry, Durant and Thompson are all very well-known 3-point shooters, we can construct statistics of 3-points from 2-points seperately, in addition to the overall ESP.
+The *Effective Shooting Percentage* is simply the percentage of shots that are made out of all shots. Since players such as Curry, Durant and Thompson are all very well-known 3-point shooters, we can construct statistics of 3-points from 2-points seperately, in addition to the overall ESP.
 
 The data we will be using is the global data frame *shots-data* we created from the prepration stage. Before constructing any table, let us make sure there is no NA value:
 
@@ -165,7 +169,7 @@ sum(is.na(GSW))
 
     ## [1] 0
 
-The total number of NA's is 0, meaning no NA value exist in our dataframe. Now let us construct the ESP by player, in descending order of percentages. We will use functions from the dplyr package we imported earlier
+The total number of NAs is 0, meaning no NA value exist in our dataframe. Now let us construct the ESP by player, in descending order of percentages. We will use functions from the dplyr package we imported earlier
 
 Let us start with the overall ESP, accounting for both 2-pointers and 3-pointers:
 
@@ -232,7 +236,7 @@ ESP_3pt
 3.3 ESP and time periods
 ------------------------
 
-We have constructed players' shot charts and computed their ESPs to help us understanding the players' performances. It is finally the time to explore the core question of today: How do players' performanences relate to to level of fatigue?
+We have constructed players' shot charts and computed their ESPs to help us understanding the players' performances. It is finally the time to explore the core question of today: How do players' performances relate to level of fatigue?
 
 By the assumptions and metrics we have decided, we can instead ask the question: Are the players' ESPs affected by how much the games have progressed?
 
@@ -313,7 +317,7 @@ ggsave("../images/ESP-3t-by-period-charts.png", plot = ESP_3pt_by_period, height
 
 The tables below summarize players' OESP, ESP of 2 pointers and ESP of 3 pointers:
 
-Mean of OESP by period:
+Mean and Standard Deviation of OESP by period:
 
 ``` r
 summarise(group_by(OESP, period), perc_made_mean = mean(perc_made), perc_made_sd = sd(perc_made))
@@ -327,7 +331,7 @@ summarise(group_by(OESP, period), perc_made_mean = mean(perc_made), perc_made_sd
     ## 3      3          0.498       0.0449
     ## 4      4          0.446       0.0423
 
-Mean of 2pt ESP by period:
+Mean and Standard Deviation of 2pt ESP by period:
 
 ``` r
 summarise(group_by(ESP_2pt, period), perc_made_mean = mean(perc_made), perc_made_sd = sd(perc_made))
@@ -341,7 +345,7 @@ summarise(group_by(ESP_2pt, period), perc_made_mean = mean(perc_made), perc_made
     ## 3      3          0.571       0.0836
     ## 4      4          0.540       0.0706
 
-Mean of 3pt ESP by period:
+Mean and Standard Deviation of 3pt ESP by period:
 
 ``` r
 summarise(group_by(ESP_3pt, period), perc_made_mean = mean(perc_made), perc_made_sd = sd(perc_made))
@@ -378,7 +382,7 @@ Interested in discussing this problem in greater depth? You are more than welcom
 
 Ran Meng
 
-XYZ Sport Agency
+XYZ Sport Media
 
 123 Ave, Oakland, CA, 98765
 
