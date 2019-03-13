@@ -387,12 +387,9 @@ Email: <ranmeng@xyz.com>
 5 REFERENCES:
 =============
 
-Data for sample population: <https://github.com/ucb-stat133/stat133-hws/tree/master/data>
-
-Other Interesting reads cited in this article that you might want to explore:
-
-1.  <https://www.forbes.com/sites/kurtbadenhausen/2017/07/03/these-19-nba-players-earn-more-than-any-nfl-player/>
-2.  <https://www.nytimes.com/2006/01/23/sports/basketball/bryant-scores-81-secondhighest-total.html>
-3.  <https://www.nbastuffer.com/player-evaluation-metrics/>
-4.  <https://en.wikipedia.org/wiki/Kevin_Durant>
-5.  <https://www.nba.com/article/2017/12/14/one-team-one-stat-warriors-shooting-better-ever>
+1.  <https://github.com/ucb-stat133/stat133-hws/tree/master/data>
+2.  <https://www.forbes.com/sites/kurtbadenhausen/2017/07/03/these-19-nba-players-earn-more-than-any-nfl-player/>
+3.  <https://www.nytimes.com/2006/01/23/sports/basketball/bryant-scores-81-secondhighest-total.html>
+4.  <https://www.nbastuffer.com/player-evaluation-metrics/>
+5.  <https://en.wikipedia.org/wiki/Kevin_Durant>
+6.  <https://www.nba.com/article/2017/12/14/one-team-one-stat-warriors-shooting-better-ever>
