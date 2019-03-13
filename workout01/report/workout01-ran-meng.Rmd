@@ -264,7 +264,8 @@ Email: ranmeng@xyz.com
 
 
 # 5 REFERENCES: 
-Data for sample population: https://github.com/ucb-stat133/stat133-hws/tree/master/data
+Data for sample population: 
+https://github.com/ucb-stat133/stat133-hws/tree/master/data
 
 Other Interesting reads cited in this article that you might want to explore:
 
