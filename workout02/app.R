@@ -29,14 +29,14 @@ ui <- fluidPage(
                      min = 0,
                      max = 100000,
                      value = 1000, 
-                     step = 500),
+                     step = 500, pre = '$'),
          
          sliderInput("contrib",
                      "Annual Contribution:",
                      min = 0,
                      max = 50000,
                      value = 2000, 
-                     step = 500)
+                     step = 500, pre = '$')
        
          ),
         
