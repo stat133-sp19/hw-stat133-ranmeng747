@@ -20,7 +20,7 @@ future_value <- function(amount = 1000, rate = 0.05, years = 10){
     stop("Input must be numeric")
   }
   
-  if(amount <= 0){
+  if(amount < 0){
     stop("Initial amount must be positive")
   }
   
@@ -56,7 +56,7 @@ annuity <- function(contrib = 200, rate = 0.05, years = 10){
     stop("Input must be numeric")
   }
   
-  if(contrib <= 0){
+  if(contrib < 0){
     stop("Contributed amount must be positive")
   }
   
@@ -92,13 +92,13 @@ growing_annuity <- function(contrib = 200, rate = 0.05, growth = 0.03, years = 1
     stop("Input must be numeric")
   }
   
-  if(contrib <= 0){
+  if(contrib < 0){
     stop("Contributed amount must be positive")
   }
   
-  if ((rate - growth) == 0){
-    stop("Cannot have same annual rate of return and growth rate")
-  }
+  #if ((rate - growth) == 0){
+   # stop("Cannot have same annual rate of return and growth rate")
+ # }
   
   if (years < 0){
     stop("Investment period must be non- negative")

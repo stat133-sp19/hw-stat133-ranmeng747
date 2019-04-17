@@ -82,7 +82,7 @@ ui <- fluidPage(
          #tableOutput('Balances'), 
          verbatimTextOutput('Balances'),
          
-         width = 8
+         width = 12
       
       )
       
@@ -106,8 +106,8 @@ server <- function(input, output) {
                                                                growth = input$growth/100, years = i)
     }
     
-    dat <- data.frame(year = year, no_contrib = round(no_contrib, 3), 
-                      fixed_contrib = round(fixed_contrib, 3), growing_contrib = round(growth_contrib, 3))
+    dat <- data.frame(year = year, no_contrib = no_contrib, 
+                      fixed_contrib = fixed_contrib, growing_contrib = growth_contrib)
     rownames(dat) <- 1:nrow(dat)
     
     return (dat)
@@ -142,8 +142,7 @@ server <- function(input, output) {
    #digits = 3)
    
   output$Balances <- renderPrint({
-    dat()
-    
+   dat()
   })
    
    
