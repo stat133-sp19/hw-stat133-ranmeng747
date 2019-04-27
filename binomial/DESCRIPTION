@@ -1,0 +1,18 @@
+Package: binomial
+Type: Package
+Title: Binomial Distribution
+Version: 0.1.0
+Author: Ran Meng
+Maintainer: Ran Meng <rmeng4@berkeley.edu>
+Description: The package implements functions for
+  calculating probabilities of a binomial random variable as well as its
+  distribution, expectation, variance, mode, skewness and kurtosis.
+Encoding: UTF-8
+License: GPL-2
+LazyData: true
+RoxygenNote: 6.1.1
+Suggests: 
+    testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

@@ -1,0 +1,90 @@
+---
+title: "Introduction to binomial package"
+author: "Ran Meng"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to binomial package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(binomial)
+```
+
+## Calculating probabilities and make plots:
+There are 4 main functions that are used to compute the Probability Mass Function(PMF) and display both the probability distributin as well as the cumulative density function in dataframes. 
+
+*bin_choose()* calculates the number of combinations in which k successes can occur in n trials, and this can be achieved by calling the function as demonstrated below. Note that the  *success(k)* argument can also be a vector:
+
+```{r}
+bin_choose(n = 5, k = 2)
+bin_choose(5, 1:3)
+```
+
+*bin_probability()*calculates the binomial probability distribution given number of successes, number of trials and the probability of getting a success in one trial:
+
+```{r}
+bin_probability(success = 2, trials = 5, prob = 0.5)
+```
+
+*bin_distribution()* displays probability density of binomial distribution in a dataframe of type *bindis*:
+```{r}
+bin_distribution(trials = 5, prob = 0.5)
+```
+
+We can also plot the dataframe of type *bindis* returned by *bin_distribution()* function:
+```{r}
+dis1 <- bin_distribution(trials = 5, prob = 0.5)
+plot(dis1)
+```
+
+The *bin_cumulative()* function is very similar with *bin_distribution()* as it also returns a dataframe with plotting capability. As the funciton name may suggest, the dataframe has column *cumulative* that contains values of cumulative probabilities:
+
+```{r}
+#Displaying dataframe
+bin_cumulative(trials = 5, prob = 0.5)
+
+#Plotting
+dis2 <- bin_cumulative(trials = 5, prob = 0.5)
+plot(dis2)
+```
+
+## Summary of binomial variables:
+
+In addition to binomial distribution calculations and plots, the package can also convert from variables of other classes to *binvar*, and return summary statistics. 
+
+*bin_variable()* generate a *binvar* object from *trials* and *prob*, which will serve as input for summary description. We can learn about this returned object with *print.binvar()*:
+
+```{r}
+bin1 <- bin_variable(trials = 10, p = 0.3)
+bin1 #print.binvar()
+```
+
+To get the overview summary description of *binvar*, we can call *summary.binvar()* which takes in the *binvar* object and returns the content of class *summary.binvar*. We can display the content with *print.summary.binvar()*
+
+```{r}
+bin1 <- bin_variable(trials = 10, p = 0.3)# class of binvar
+binsum1 <- summary(bin1) # class of summary.binvar
+binsum1 # print.summary.binvar()
+```
+
+## Functions of measures
+
+Finally, the package also contains functions that will compute the mean, variance, mode, skewness and kurtosis of a binomial distribution given the number of trials and the probability of success in a single trial. We can get the statistics by calling the corresponding function:
+
+```{r}
+bin_mean(10, 0.3)
+bin_variance(10, 0.3)
+bin_mode(10, 0.3)
+bin_skewness(10, 0.3)
+bin_kurtosis(10, 0.3)
+```
