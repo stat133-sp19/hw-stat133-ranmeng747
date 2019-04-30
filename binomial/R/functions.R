@@ -283,7 +283,7 @@ bin_variable <- function (trials, prob){
 
 #' @export
 print.binvar <- function(x, ...){
-  cat('"Binomial Variable"')
+  cat('"Binomial variable"')
   cat('\n')
   cat('\n')
   cat('Parameters')
